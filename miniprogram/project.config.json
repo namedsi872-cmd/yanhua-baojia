@@ -1,0 +1,20 @@
+{
+  "description": "烟花报价小程序。请把 appid 从 touristappid 换成微信公众平台的真实 AppID（开发管理 → 开发设置）。",
+  "packOptions": { "ignore": [], "include": [] },
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": false,
+    "enhance": true,
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "babelSetting": { "ignore": [], "disablePlugins": [], "outputPath": "" }
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.5.5",
+  "appid": "touristappid",
+  "projectname": "yanhua-baojia",
+  "condition": {},
+  "editorSetting": { "tabIndent": "insertSpaces", "tabSize": 2 }
+}
