@@ -1,0 +1,16 @@
+<view class="card" bindtap="onOpen">
+  <view class="thumb">
+    <image wx:if="{{product.image}}" class="img" src="{{product.image}}" mode="aspectFill" />
+    <text wx:else class="emoji">{{product.emoji || '🎆'}}</text>
+  </view>
+  <view class="info">
+    <view class="name">{{product.name}}</view>
+    <view class="spec" wx:if="{{product.specSummary}}">{{product.specSummary}}</view>
+    <view class="price">¥{{priceText}}</view>
+    <view class="meta">库存{{product.stock != null ? product.stock : '-'}} · 起订{{product.minOrder || 1}}</view>
+    <view class="row">
+      <view class="spacer"></view>
+      <view class="add" catchtap="onAdd">加入报价单</view>
+    </view>
+  </view>
+</view>
