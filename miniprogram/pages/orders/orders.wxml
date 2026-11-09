@@ -1,0 +1,13 @@
+<view class="page">
+  <block wx:if="{{orders.length}}">
+    <view class="card" wx:for="{{orders}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpen">
+      <view class="top">
+        <text class="id">{{item.id}}</text>
+        <text class="status">已提交</text>
+      </view>
+      <view class="mid">{{item.totalCount}} 件 · ¥{{item.totalPriceText}}</view>
+      <view class="time">{{item.createdAtText}}</view>
+    </view>
+  </block>
+  <view wx:else class="empty">还没有订单\n提交报价单后会出现在这里</view>
+</view>
