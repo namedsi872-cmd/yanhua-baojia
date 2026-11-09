@@ -48,7 +48,12 @@ function enabledProducts() {
 
 function withDefaultSpec(p) {
   var item = clone(p);
-  var spec = (item.specs && item.specs[0]) || {
+  var specs = item.specs || [];
+  var spec = null;
+  for (var i = 0; i < specs.length; i++) {
+    if (specs[i].pack || specs[i].originalPrice) { spec = specs[i]; break; }
+  }
+  if (!spec) spec = specs[0] || {
     id: "default",
     name: "标准",
     price: 0,
@@ -59,9 +64,12 @@ function withDefaultSpec(p) {
   item.price = spec.price;
   item.stock = spec.stock;
   item.minOrder = spec.minOrder;
+  item.pack = spec.pack || "";
+  item.originalPrice = spec.originalPrice || null;
+  item.specLine = spec.pack ? spec.name + " · " + spec.pack : spec.name;
   item.specSummary = (item.specs || [])
     .map(function (s) {
-      return s.name + "¥" + s.price;
+      return s.pack ? s.name + " · " + s.pack + "¥" + s.price : s.name + "¥" + s.price;
     })
     .join(" / ");
   return item;
