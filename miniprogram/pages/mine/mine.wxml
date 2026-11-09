@@ -1,0 +1,29 @@
+<view class="page">
+  <view class="hero">
+    <view class="avatar">烟</view>
+    <view class="hero-text">
+      <view class="name">{{shop.name}}</view>
+      <view class="sub">欢迎来报价</view>
+    </view>
+  </view>
+  <view class="menu card-box">
+    <view class="row" bindtap="goQuote">
+      <text>我的报价单</text><text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="goOrders">
+      <text>我的订单</text><text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="goAddress">
+      <text>收货地址</text><text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="onCall">
+      <text>联系客服（电话）</text><text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="onCopyWechat">
+      <text>复制微信号</text><text class="arrow">›</text>
+    </view>
+    <view class="row" bindtap="goAbout">
+      <text>关于我们</text><text class="arrow">›</text>
+    </view>
+  </view>
+</view>
