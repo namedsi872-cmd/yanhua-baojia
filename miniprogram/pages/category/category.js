@@ -3,8 +3,8 @@ var api = require("../../services/api.js");
 Page({
   data: {
     categories: [],
-    categoryId: "",
-    currentName: "",
+    categoryId: "all",
+    currentName: "全部",
     products: [],
     keyword: "",
     sort: "default",
@@ -14,26 +14,24 @@ Page({
       this.getTabBar().setData({ selected: 1 });
     }
     var pending = "";
+    var kw = "";
     try {
       pending = wx.getStorageSync("yanhua_pending_category") || "";
       if (pending) wx.removeStorageSync("yanhua_pending_category");
+      kw = wx.getStorageSync("yanhua_pending_keyword") || "";
+      if (kw) wx.removeStorageSync("yanhua_pending_keyword");
     } catch (e) {}
+    if (kw) this.setData({ keyword: kw });
     this.boot(pending);
   },
   boot: function (preferId) {
     var that = this;
     api.getCategories().then(function (cats) {
       return api.getProducts({}).then(function (all) {
-        var counts = {};
-        all.forEach(function (p) {
-          counts[p.categoryId] = (counts[p.categoryId] || 0) + 1;
-        });
-        var categories = cats.map(function (c) {
-          return Object.assign({}, c, { count: counts[c.id] || 0 });
-        });
-        var categoryId = preferId || that.data.categoryId;
-        if (!categoryId || !categories.some(function (c) { return c.id === categoryId; })) {
-          categoryId = categories[0] ? categories[0].id : "";
+        var categories = cats.slice();
+        var categoryId = preferId || that.data.categoryId || "all";
+        if (!categories.some(function (c) { return c.id === categoryId; })) {
+          categoryId = categories[0] ? categories[0].id : "all";
         }
         that.setData({ categories: categories, categoryId: categoryId });
         that.refresh();
@@ -49,23 +47,19 @@ Page({
     });
     api
       .getProducts({
-        categoryId: that.data.keyword ? "" : id,
+        categoryId: that.data.keyword ? "all" : id,
         keyword: that.data.keyword,
         sort: that.data.sort,
       })
       .then(function (list) {
-        // 有关键词时跨分类搜索；无关键词时已按分类过滤
-        if (!that.data.keyword) {
-          // already filtered
-        }
-        that.setData({ products: list, currentName: that.data.keyword ? "搜索结果" : name });
+        that.setData({
+          products: list,
+          currentName: that.data.keyword ? "搜索结果" : name || "全部",
+        });
       });
   },
   onSelectCat: function (e) {
-    this.setData({
-      categoryId: e.currentTarget.dataset.id,
-      keyword: "",
-    });
+    this.setData({ categoryId: e.currentTarget.dataset.id, keyword: "" });
     this.refresh();
   },
   onKeyword: function (e) {
