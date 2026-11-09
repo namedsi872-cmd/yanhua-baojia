@@ -1,16 +1,19 @@
 <view class="page" wx:if="{{product}}">
   <view class="hero">
+    <view class="back-btn" bindtap="onBack">‹</view>
     <image wx:if="{{product.image}}" class="hero-img" src="{{product.image}}" mode="aspectFill" />
     <view wx:else class="hero-ph"><text class="hero-emoji">{{product.emoji || '🎆'}}</text></view>
   </view>
 
   <view class="sheet">
     <view class="name">{{product.name}}</view>
-    <view class="spec-line">{{spec.name}}</view>
+    <view class="spec-line">{{specLine}}</view>
     <view class="price-row">
       <text class="price">¥{{priceText}}</text>
       <text wx:if="{{comparePrice}}" class="old">¥{{comparePrice}}</text>
     </view>
+
+    <view class="divider"></view>
 
     <view class="block">
       <view class="label">规格选择</view>
@@ -25,13 +28,21 @@
       </view>
     </view>
 
+    <view class="divider"></view>
+
+    <view class="block" wx:if="{{product.intro}}">
+      <view class="label">商品介绍</view>
+      <view class="intro">{{product.intro}}</view>
+    </view>
+
+    <view class="divider" wx:if="{{product.intro}}"></view>
+
     <view class="block row-between">
-      <view class="label">数量</view>
+      <view class="label">购买数量</view>
       <qty-stepper qty="{{qty}}" min="{{spec.minOrder}}" max="{{spec.stock}}" bind:change="onQty" />
     </view>
 
-    <view class="block muted-line">库存 {{spec.stock}} · 起订 {{spec.minOrder}}</view>
-    <view class="block intro" wx:if="{{product.intro}}">{{product.intro}}</view>
+    <view class="muted-line">库存 {{spec.stock}} · 起订 {{spec.minOrder}}</view>
   </view>
 
   <view class="footer">
