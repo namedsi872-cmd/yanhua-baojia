@@ -1,0 +1,20 @@
+page {
+  background: #f7f6f3;
+  color: #202326;
+  font-size: 28rpx;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+.price-color { color: #e45d43; font-weight: 700; }
+.muted { color: #888888; }
+.card-box {
+  background: #ffffff;
+  border-radius: 28rpx;
+}
+.btn-primary {
+  background: #e45d43;
+  color: #ffffff;
+  border-radius: 999rpx;
+  font-weight: 600;
+  text-align: center;
+}
+.btn-primary::after { border: none; }
