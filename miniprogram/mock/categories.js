@@ -1,18 +1,17 @@
 /**
- * 分类数据 — 对应后台分类管理
- * 字段：id, name, image, icon, sort, enabled, parentId(可选子分类)
- * 前端按 enabled 过滤、按 sort 升序渲染，禁止在页面写死分类名
+ * 分类数据 — 后台可改；前端按 enabled/sort 动态渲染
  */
 module.exports = [
-  { id: "shouchi", name: "手持喷花类", image: "", icon: "🎆", sort: 10, enabled: true, parentId: null },
-  { id: "tuzhu", name: "吐珠类", image: "", icon: "💥", sort: 20, enabled: true, parentId: null },
-  { id: "huojian", name: "火箭类", image: "", icon: "🚀", sort: 30, enabled: true, parentId: null },
-  { id: "penhua", name: "喷花类", image: "", icon: "🌋", sort: 40, enabled: true, parentId: null },
-  { id: "wanju", name: "玩具类", image: "", icon: "🪄", sort: 50, enabled: true, parentId: null },
-  { id: "xuanzhuan", name: "旋转类", image: "", icon: "🎡", sort: 60, enabled: true, parentId: null },
-  { id: "feitian", name: "飞天类", image: "", icon: "🛸", sort: 70, enabled: true, parentId: null },
-  { id: "putong", name: "普通礼花类", image: "", icon: "🧨", sort: 80, enabled: true, parentId: null },
-  { id: "tuijian", name: "推荐类", image: "", icon: "🎁", sort: 5, enabled: true, parentId: null },
-  { id: "texiao", name: "特效礼花类", image: "", icon: "💫", sort: 90, enabled: true, parentId: null },
-  { id: "disabled_demo", name: "（已禁用示例）", image: "", icon: "", sort: 99, enabled: false, parentId: null },
+  { id: "all", name: "全部", image: "", icon: "all", sort: 0, enabled: true, parentId: null },
+  { id: "shouchi", name: "手持喷花", image: "", icon: "hand", sort: 10, enabled: true, parentId: null },
+  { id: "penhua", name: "喷花类", image: "", icon: "fountain", sort: 20, enabled: true, parentId: null },
+  { id: "putong", name: "礼花弹", image: "", icon: "shell", sort: 30, enabled: true, parentId: null },
+  { id: "wanju", name: "烟花棒", image: "", icon: "sparkler", sort: 40, enabled: true, parentId: null },
+  { id: "xuanzhuan", name: "旋转类", image: "", icon: "spin", sort: 50, enabled: true, parentId: null },
+  { id: "tuijian", name: "组合烟花", image: "", icon: "combo", sort: 60, enabled: true, parentId: null },
+  { id: "texiao", name: "特效类", image: "", icon: "fx", sort: 70, enabled: true, parentId: null },
+  { id: "feitian", name: "其他", image: "", icon: "other", sort: 80, enabled: true, parentId: null },
+  { id: "tuzhu", name: "吐珠类", image: "", icon: "bead", sort: 90, enabled: true, parentId: null },
+  { id: "huojian", name: "火箭类", image: "", icon: "rocket", sort: 100, enabled: true, parentId: null },
+  { id: "disabled_demo", name: "（已禁用示例）", image: "", icon: "", sort: 999, enabled: false, parentId: null },
 ];

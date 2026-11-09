@@ -7,18 +7,18 @@
 module.exports = [
   {
     id: "p001",
-    name: "舞龙棒",
+    name: "星光喷泉",
     categoryId: "shouchi",
     image: "",
     emoji: "🎆",
-    intro: "手持喷花，适合聚会助兴。请在空旷安全处燃放。",
+    intro: "星光喷泉，中号 36 支装，适合户外聚会。请在空旷安全处燃放。",
     sales: 128,
     sort: 10,
     hot: true,
     enabled: true,
     specs: [
       { id: "s", name: "小号", price: 8, stock: 500, minOrder: 1 },
-      { id: "m", name: "中号", price: 13, stock: 9999, minOrder: 1 },
+      { id: "m", name: "中号 · 36支装", price: 12, stock: 9999, minOrder: 1 },
       { id: "l", name: "大号", price: 18, stock: 300, minOrder: 1 },
     ],
   },
