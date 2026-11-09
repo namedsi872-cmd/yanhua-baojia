@@ -1,0 +1,598 @@
+/* 烟花报价单 - 喜庆红移动端样式 */
+:root {
+  --red: #e53935;
+  --red-dark: #c62828;
+  --red-soft: #ffebee;
+  --gold: #f5a623;
+  --text: #222;
+  --muted: #888;
+  --line: #eee;
+  --bg: #f6f6f6;
+  --card: #fff;
+  --radius: 12px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --header-h: 108px;
+  --tab-h: 56px;
+  --sidebar-w: 88px;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+button, input {
+  font: inherit;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100%;
+  background: var(--bg);
+  position: relative;
+  padding-bottom: calc(var(--tab-h) + var(--safe-bottom));
+}
+
+/* ========== 顶栏 ========== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(180deg, #fff 0%, #fff8f8 100%);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 12px 12px;
+}
+
+.shop-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--red-dark);
+  letter-spacing: 1px;
+  margin: 2px 0 10px;
+}
+
+.shop-title .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.25);
+}
+
+.search-wrap {
+  position: relative;
+}
+
+.search-wrap input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #f2f2f2;
+  border-radius: 999px;
+  padding: 10px 14px 10px 36px;
+  font-size: 14px;
+}
+
+.search-wrap::before {
+  content: "🔍";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* ========== 首页：分类 + 商品 ========== */
+.home-layout {
+  display: flex;
+  min-height: calc(100vh - var(--header-h) - var(--tab-h));
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  background: #fafafa;
+  border-right: 1px solid var(--line);
+  overflow-y: auto;
+  max-height: calc(100vh - var(--header-h) - var(--tab-h));
+  position: sticky;
+  top: var(--header-h);
+  align-self: flex-start;
+}
+
+.cat-btn {
+  display: block;
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 14px 10px;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.35;
+  position: relative;
+  cursor: pointer;
+}
+
+.cat-btn.active {
+  background: #fff;
+  color: var(--red);
+  font-weight: 600;
+}
+
+.cat-btn.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--red-dark);
+}
+
+.product-list {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.product-card {
+  display: flex;
+  gap: 10px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.thumb {
+  width: 88px;
+  height: 88px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffd6d6, #fff0e0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb .emoji-ph {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.thumb .sample-badge {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.pinfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pname {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prices {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.price-now {
+  color: var(--red);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.price-now::before {
+  content: "¥";
+  font-size: 12px;
+  margin-right: 1px;
+}
+
+.price-old {
+  color: var(--muted);
+  font-size: 12px;
+  text-decoration: line-through;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 11px;
+  margin: 2px 0 6px;
+}
+
+.row-bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.shop-pill {
+  background: #f0f0f0;
+  color: #777;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  max-width: 55%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.add-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #e8e8e8;
+  color: #333;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, background 0.15s ease;
+}
+
+.add-btn:active {
+  transform: scale(0.92);
+  background: var(--red);
+  color: #fff;
+}
+
+.empty-tip {
+  text-align: center;
+  color: var(--muted);
+  padding: 48px 16px;
+  font-size: 14px;
+}
+
+/* ========== 报价单 ========== */
+.panel {
+  padding: 12px;
+}
+
+.panel-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 4px 0 12px;
+  color: var(--red-dark);
+}
+
+.quote-item {
+  display: flex;
+  gap: 10px;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.quote-item .thumb {
+  width: 72px;
+  height: 72px;
+}
+
+.quote-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.quote-price {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.qty-ctrl {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.qty-ctrl button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: #f7f7f7;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.qty-ctrl span {
+  min-width: 36px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.quote-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--red);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+
+.btn-ghost {
+  background: #eee;
+  color: #555;
+  grid-column: 1 / -1;
+}
+
+.total-bar {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 14px 12px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.total-bar .label {
+  color: #555;
+  font-size: 14px;
+}
+
+.total-bar .sum {
+  color: var(--red);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--tab-h) + 24px + var(--safe-bottom));
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(0, 0, 0, 0.78);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 50;
+  max-width: 86%;
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ========== 联系我们 ========== */
+.contact-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.contact-banner {
+  background: linear-gradient(135deg, var(--red), #ff7043);
+  color: #fff;
+  border-radius: 12px;
+  padding: 18px 14px;
+  margin-bottom: 14px;
+}
+
+.contact-banner h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.contact-banner p {
+  margin: 0;
+  opacity: 0.92;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.contact-row {
+  display: flex;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.contact-row:last-child {
+  border-bottom: none;
+}
+
+.contact-row .k {
+  color: var(--muted);
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.contact-row .v {
+  flex: 1;
+  word-break: break-all;
+}
+
+.contact-row a {
+  color: var(--red);
+  text-decoration: none;
+}
+
+/* ========== 底部 Tab ========== */
+.tabbar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  height: calc(var(--tab-h) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: #fff;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  z-index: 30;
+}
+
+.tab-btn {
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: #999;
+  font-size: 11px;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-btn .ico {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.tab-btn.active {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.badge {
+  position: absolute;
+  top: 4px;
+  right: calc(50% - 22px);
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+#view-home.active {
+  display: block;
+}
+
+/* 报价单导出截图用 */
+#quote-capture {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+#quote-capture h3 {
+  margin: 0 0 8px;
+  color: var(--red-dark);
+}
+
+#quote-capture .cap-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #eee;
+  font-size: 13px;
+}
+
+#quote-capture .cap-total {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--red);
+}
+
+#quote-capture .cap-meta {
+  margin-top: 10px;
+  color: #888;
+  font-size: 12px;
+  line-height: 1.5;
+}

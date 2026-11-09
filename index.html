@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="description" content="过年烟花报价单 - 浏览商品、生成报价清单" />
+  <title>烟花小士多 · 报价单</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="shop-title">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="shop-title-text">烟花小士多</span>
+        <span class="dot" aria-hidden="true"></span>
+      </div>
+      <div class="search-wrap">
+        <input id="search-input" type="search" placeholder="搜索商品名称" enterkeyhint="search" />
+      </div>
+    </header>
+
+    <!-- 首页 -->
+    <section id="view-home" class="view active">
+      <div class="home-layout">
+        <nav id="sidebar" class="sidebar" aria-label="商品分类"></nav>
+        <div id="product-list" class="product-list"></div>
+      </div>
+    </section>
+
+    <!-- 报价单 -->
+    <section id="view-quote" class="view">
+      <div class="panel">
+        <h2 class="panel-title">我的报价单</h2>
+        <div class="total-bar">
+          <div>
+            <div class="label">已选 <span id="total-count">0</span> 件</div>
+          </div>
+          <div class="sum" id="total-sum">¥0.00</div>
+        </div>
+        <div id="quote-list"></div>
+        <div class="quote-actions">
+          <button type="button" class="btn btn-primary" id="btn-copy">复制文字发给微信</button>
+          <button type="button" class="btn btn-secondary" id="btn-image">保存为图片</button>
+          <button type="button" class="btn btn-ghost" id="btn-clear">清空报价单</button>
+        </div>
+      </div>
+      <!-- 截图用隐藏区域 -->
+      <div id="quote-capture" style="display:none" aria-hidden="true"></div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="view-contact" class="view">
+      <div class="panel">
+        <h2 class="panel-title">联系我们</h2>
+        <div class="contact-card">
+          <div class="contact-banner">
+            <h2 id="contact-name">烟花小士多</h2>
+            <p id="contact-notice">本页仅供报价参考，下单请联系店主确认库存与配送。</p>
+          </div>
+          <div class="contact-row">
+            <div class="k">电话</div>
+            <div class="v"><a id="contact-phone" href="tel:">138-0000-0000</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="k">微信</div>
+            <div class="v" id="contact-wechat">yanhua_demo</div>
+          </div>
+          <div class="contact-row">
+            <div class="k">地址</div>
+            <div class="v" id="contact-address">示例地址</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="tabbar" aria-label="底部导航">
+      <button type="button" class="tab-btn active" data-tab="home">
+        <span class="ico">🏠</span>
+        <span>首页</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="quote">
+        <span class="ico">🧾</span>
+        <span>报价单</span>
+        <span id="quote-badge" class="badge" style="display:none">0</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="contact">
+        <span class="ico">📞</span>
+        <span>联系我们</span>
+      </button>
+    </nav>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
