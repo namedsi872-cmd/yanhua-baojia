@@ -3,12 +3,12 @@
   padding: 8rpx 0 180rpx; box-sizing: border-box;
 }
 .item {
-  display: flex; align-items: center; gap: 20rpx;
+  display: flex; align-items: center; gap: 24rpx;
   padding: 28rpx 32rpx;
   border-bottom: 1px solid #f2f2f2;
 }
 .thumb {
-  width: 120rpx; height: 120rpx; border-radius: 16rpx;
+  width: 128rpx; height: 128rpx; border-radius: 20rpx;
   background: #f0efec; overflow: hidden; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
@@ -16,10 +16,10 @@
 .emoji { font-size: 48rpx; }
 .info { flex: 1; min-width: 0; }
 .name { font-size: 30rpx; font-weight: 700; color: #202326; }
-.spec { margin-top: 10rpx; font-size: 24rpx; color: #888; }
+.spec { margin-top: 12rpx; font-size: 24rpx; color: #888; }
 .right { display: flex; flex-direction: column; align-items: flex-end; gap: 16rpx; }
 .del { font-size: 28rpx; opacity: 0.45; padding: 8rpx; }
-.empty { text-align: center; color: #888; padding: 160rpx 40rpx; line-height: 1.6; }
+.empty { text-align: center; color: #888; padding: 160rpx 40rpx; line-height: 1.6; white-space: pre-line; }
 .bar {
   position: fixed; left: 0; right: 0; bottom: 0;
   background: #fff;
@@ -28,7 +28,6 @@
   box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.04);
   z-index: 20;
 }
-/* leave room for custom tabBar: raise bar */
 .page-with-tab .bar {
   bottom: calc(100rpx + env(safe-area-inset-bottom));
 }
