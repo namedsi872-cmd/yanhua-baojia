@@ -25,7 +25,7 @@
 
 首页 · 分类 · 报价单 · 我的  
 
-线性图标在 `images/tab-*.png`；选中态文字为 `#E45D43`（图标与未选中共用线稿，避免多余资源）。
+底部使用**自定义 tabBar**（`custom-tab-bar/`）绘制线性图标，选中色 `#E45D43`。`images/tab-*.png` 与 `images/banner.png` 可自行放入（Banner 已支持本地图；缺图时首页用深色占位）。
 
 ## Banner
 
