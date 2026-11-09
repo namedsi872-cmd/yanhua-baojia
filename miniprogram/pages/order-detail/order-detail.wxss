@@ -1,0 +1,9 @@
+.page { padding: 24rpx; }
+.card { background: #fff; border-radius: 28rpx; padding: 28rpx; margin-bottom: 20rpx; }
+.row { display: flex; justify-content: space-between; padding: 12rpx 0; font-size: 28rpx; }
+.k { color: #888; }
+.title { font-weight: 700; margin-bottom: 12rpx; }
+.line { display: flex; justify-content: space-between; padding: 16rpx 0; border-top: 1px solid #f0f0f0; }
+.name { font-weight: 600; }
+.spec { color: #888; font-size: 24rpx; margin-top: 6rpx; }
+.right { color: #e45d43; font-weight: 600; }

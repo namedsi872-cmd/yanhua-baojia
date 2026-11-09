@@ -1,0 +1,9 @@
+<view class="page">
+  <view class="card">
+    <view class="title">{{shop.name}}</view>
+    <view class="body">{{shop.about}}</view>
+    <view class="meta">电话：{{shop.phone}}</view>
+    <view class="meta">微信：{{shop.wechat}}</view>
+    <view class="meta">地址：{{shop.address}}</view>
+  </view>
+</view>
