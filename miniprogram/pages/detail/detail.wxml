@@ -1,34 +1,40 @@
 <view class="page" wx:if="{{product}}">
   <view class="hero">
     <image wx:if="{{product.image}}" class="hero-img" src="{{product.image}}" mode="aspectFill" />
-    <text wx:else class="hero-emoji">{{product.emoji || '🎆'}}</text>
+    <view wx:else class="hero-ph"><text class="hero-emoji">{{product.emoji || '🎆'}}</text></view>
   </view>
-  <view class="panel">
+
+  <view class="sheet">
     <view class="name">{{product.name}}</view>
-    <view class="price">¥{{priceText}}</view>
-    <view class="muted">库存 {{spec.stock}} · 起订 {{spec.minOrder}}</view>
-  </view>
-  <view class="panel">
-    <view class="label">选择规格</view>
-    <view class="specs">
-      <view
-        wx:for="{{product.specs}}"
-        wx:key="id"
-        class="spec {{item.id === specId ? 'on' : ''}}"
-        data-id="{{item.id}}"
-        bindtap="onSpec"
-      >{{item.name}} ¥{{item.price}}</view>
+    <view class="spec-line">{{spec.name}}</view>
+    <view class="price-row">
+      <text class="price">¥{{priceText}}</text>
+      <text wx:if="{{comparePrice}}" class="old">¥{{comparePrice}}</text>
     </view>
+
+    <view class="block">
+      <view class="label">规格选择</view>
+      <view class="chips">
+        <view
+          wx:for="{{product.specs}}"
+          wx:key="id"
+          class="chip {{item.id === specId ? 'on' : ''}}"
+          data-id="{{item.id}}"
+          bindtap="onSpec"
+        >{{item.name}}</view>
+      </view>
+    </view>
+
+    <view class="block row-between">
+      <view class="label">数量</view>
+      <qty-stepper qty="{{qty}}" min="{{spec.minOrder}}" max="{{spec.stock}}" bind:change="onQty" />
+    </view>
+
+    <view class="block muted-line">库存 {{spec.stock}} · 起订 {{spec.minOrder}}</view>
+    <view class="block intro" wx:if="{{product.intro}}">{{product.intro}}</view>
   </view>
-  <view class="panel">
-    <view class="label">数量</view>
-    <qty-stepper qty="{{qty}}" min="{{spec.minOrder}}" max="{{spec.stock}}" bind:change="onQty" />
-  </view>
-  <view class="panel" wx:if="{{product.intro}}">
-    <view class="label">介绍</view>
-    <view class="intro">{{product.intro}}</view>
-  </view>
+
   <view class="footer">
-    <button class="btn-primary add" bindtap="onAdd">加入报价单</button>
+    <button class="add-btn" bindtap="onAdd">加入报价单</button>
   </view>
 </view>

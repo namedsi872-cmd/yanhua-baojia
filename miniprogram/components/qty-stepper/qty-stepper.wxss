@@ -1,23 +1,18 @@
 .stepper {
   display: inline-flex;
   align-items: center;
-  border: 1px solid #e5e5e5;
-  border-radius: 12rpx;
+  background: #f3f3f3;
+  border-radius: 999rpx;
   overflow: hidden;
+  height: 56rpx;
 }
 .btn {
-  width: 56rpx;
-  height: 56rpx;
-  line-height: 56rpx;
-  text-align: center;
-  background: #f7f6f3;
-  font-size: 32rpx;
-  color: #202326;
+  width: 56rpx; height: 56rpx; line-height: 56rpx;
+  text-align: center; font-size: 30rpx; color: #666;
 }
-.btn.disabled { color: #cccccc; }
+.btn.plus { color: #e45d43; font-weight: 700; }
+.btn.disabled { color: #ccc; }
 .num {
-  min-width: 64rpx;
-  text-align: center;
-  font-size: 28rpx;
-  font-weight: 600;
+  min-width: 48rpx; text-align: center;
+  font-size: 28rpx; font-weight: 600; color: #202326;
 }

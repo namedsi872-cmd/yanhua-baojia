@@ -8,6 +8,7 @@ Page({
     spec: {},
     qty: 1,
     priceText: "0.00",
+    comparePrice: "",
   },
   onLoad: function (q) {
     var that = this;
@@ -17,13 +18,25 @@ Page({
         return;
       }
       var spec = (p.specs && p.specs[0]) || {};
-      that.setData({
-        product: p,
-        specId: spec.id,
-        spec: spec,
-        qty: spec.minOrder || 1,
-        priceText: cart.money(spec.price),
+      that.applySpec(p, spec);
+    });
+  },
+  applySpec: function (product, spec) {
+    var compare = "";
+    if (product.specs && product.specs.length > 1) {
+      var max = 0;
+      product.specs.forEach(function (s) {
+        if (s.price > max) max = s.price;
       });
+      if (max > spec.price) compare = cart.money(max);
+    }
+    this.setData({
+      product: product,
+      specId: spec.id,
+      spec: spec,
+      qty: spec.minOrder || 1,
+      priceText: cart.money(spec.price),
+      comparePrice: compare,
     });
   },
   onSpec: function (e) {
@@ -31,12 +44,7 @@ Page({
     var specs = this.data.product.specs || [];
     var spec = specs.filter(function (s) { return s.id === id; })[0];
     if (!spec) return;
-    this.setData({
-      specId: id,
-      spec: spec,
-      qty: spec.minOrder || 1,
-      priceText: cart.money(spec.price),
-    });
+    this.applySpec(this.data.product, spec);
   },
   onQty: function (e) {
     this.setData({ qty: e.detail.qty });
