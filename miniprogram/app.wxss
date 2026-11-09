@@ -18,3 +18,8 @@ page {
   text-align: center;
 }
 .btn-primary::after { border: none; }
+
+/* 自定义 tabBar 占位，避免内容被挡住 */
+.page-with-tab {
+  padding-bottom: calc(100rpx + env(safe-area-inset-bottom));
+}
