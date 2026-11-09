@@ -1,5 +1,5 @@
 <view class="stepper">
   <view class="btn {{qty <= min ? 'disabled' : ''}}" data-delta="-1" bindtap="onTap">−</view>
   <text class="num">{{qty}}</text>
-  <view class="btn {{qty >= max ? 'disabled' : ''}}" data-delta="1" bindtap="onTap">＋</view>
+  <view class="btn plus {{qty >= max ? 'disabled' : ''}}" data-delta="1" bindtap="onTap">＋</view>
 </view>

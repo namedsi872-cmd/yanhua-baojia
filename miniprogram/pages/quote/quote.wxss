@@ -1,36 +1,41 @@
-.page { padding: 24rpx 24rpx 180rpx; min-height: 100vh; box-sizing: border-box; }
+.page {
+  min-height: 100vh; background: #fff;
+  padding: 8rpx 0 180rpx; box-sizing: border-box;
+}
 .item {
-  display: flex;
-  gap: 20rpx;
-  background: #fff;
-  border-radius: 28rpx;
-  padding: 20rpx;
-  margin-bottom: 20rpx;
+  display: flex; align-items: center; gap: 20rpx;
+  padding: 28rpx 32rpx;
+  border-bottom: 1px solid #f2f2f2;
 }
 .thumb {
-  width: 160rpx; height: 160rpx; border-radius: 20rpx;
-  background: #f0efec; display: flex; align-items: center; justify-content: center;
-  overflow: hidden; flex-shrink: 0;
+  width: 120rpx; height: 120rpx; border-radius: 16rpx;
+  background: #f0efec; overflow: hidden; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
 }
 .img { width: 100%; height: 100%; }
-.emoji { font-size: 56rpx; }
+.emoji { font-size: 48rpx; }
 .info { flex: 1; min-width: 0; }
-.name { font-weight: 600; font-size: 30rpx; }
-.spec { color: #888; font-size: 24rpx; margin-top: 6rpx; }
-.price { color: #e45d43; font-weight: 700; margin-top: 8rpx; font-size: 32rpx; }
-.row { margin-top: 12rpx; display: flex; align-items: center; justify-content: space-between; }
-.del { color: #888; font-size: 24rpx; }
-.empty { text-align: center; color: #888; padding: 120rpx 40rpx; line-height: 1.6; }
+.name { font-size: 30rpx; font-weight: 700; color: #202326; }
+.spec { margin-top: 10rpx; font-size: 24rpx; color: #888; }
+.right { display: flex; flex-direction: column; align-items: flex-end; gap: 16rpx; }
+.del { font-size: 28rpx; opacity: 0.45; padding: 8rpx; }
+.empty { text-align: center; color: #888; padding: 160rpx 40rpx; line-height: 1.6; }
 .bar {
   position: fixed; left: 0; right: 0; bottom: 0;
   background: #fff;
   padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
   display: flex; align-items: center; gap: 20rpx;
   box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.04);
+  z-index: 20;
 }
-.sum { flex: 1; }
-.total { color: #e45d43; font-size: 36rpx; font-weight: 700; }
+/* leave room for custom tabBar: raise bar */
+.page-with-tab .bar {
+  bottom: calc(100rpx + env(safe-area-inset-bottom));
+}
+.sum { flex: 1; font-size: 28rpx; color: #202326; }
+.sum-num { color: #e45d43; font-size: 40rpx; font-weight: 800; margin-left: 4rpx; }
 .submit {
-  background: #e45d43; color: #fff; padding: 20rpx 36rpx;
-  border-radius: 999rpx; font-weight: 600; font-size: 28rpx;
+  background: #e45d43; color: #fff;
+  padding: 22rpx 40rpx; border-radius: 999rpx;
+  font-weight: 700; font-size: 28rpx;
 }

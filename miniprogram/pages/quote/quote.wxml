@@ -7,29 +7,25 @@
       </view>
       <view class="info">
         <view class="name">{{item.name}}</view>
-        <view class="spec">{{item.specName}}</view>
-        <view class="price">¥{{item.priceText}}</view>
-        <view class="row">
-          <qty-stepper
-            qty="{{item.qty}}"
-            min="{{item.minOrder}}"
-            max="{{item.stock}}"
-            product-id="{{item.productId}}"
-            spec-id="{{item.specId}}"
-            bind:change="onQty"
-          />
-          <text class="del" data-pid="{{item.productId}}" data-sid="{{item.specId}}" bindtap="onRemove">删除</text>
-        </view>
+        <view class="spec">{{item.specName}} · ¥{{item.priceText}}</view>
+      </view>
+      <view class="right">
+        <qty-stepper
+          qty="{{item.qty}}"
+          min="{{item.minOrder}}"
+          max="{{item.stock}}"
+          product-id="{{item.productId}}"
+          spec-id="{{item.specId}}"
+          bind:change="onQty"
+        />
+        <view class="del" data-pid="{{item.productId}}" data-sid="{{item.specId}}" bindtap="onRemove">🗑</view>
       </view>
     </view>
   </block>
   <view wx:else class="empty">报价单还是空的\n去分类页加点货吧</view>
 
   <view class="bar" wx:if="{{items.length}}">
-    <view class="sum">
-      <view>共 {{totalCount}} 件</view>
-      <view class="total">¥{{totalPrice}}</view>
-    </view>
+    <view class="sum">合计：<text class="sum-num">¥{{totalPrice}}</text></view>
     <view class="submit" bindtap="onSubmit">提交报价单</view>
   </view>
 </view>
