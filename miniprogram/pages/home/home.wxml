@@ -11,40 +11,42 @@
 
   <view class="search-wrap">
     <view class="search">
-      <text class="search-ico">🔍</text>
+      <image class="search-ico" src="{{searchIcon}}" mode="aspectFit" />
       <input class="search-input" placeholder="{{config.searchPlaceholder}}" value="{{keyword}}" bindinput="onKeyword" bindconfirm="onSearch" confirm-type="search" />
     </view>
   </view>
 
-  <view class="section">
-    <view class="section-head">
-      <text class="section-title">热门分类</text>
-      <text class="section-more" bindtap="goCategory">全部 ›</text>
-    </view>
-    <view class="cat-grid">
-      <view class="cat-tile" wx:for="{{config.hotCategories}}" wx:key="id" data-id="{{item.id}}" bindtap="onHotCat">
-        <view class="cat-ico cat-ico-{{item.icon}}"></view>
-        <text class="cat-name">{{item.name}}</text>
+  <view class="panel">
+    <view class="section">
+      <view class="section-head">
+        <text class="section-title">热门分类</text>
+        <text class="section-more" bindtap="goCategory">全部 ›</text>
+      </view>
+      <view class="cat-grid">
+        <view class="cat-tile" wx:for="{{config.hotCategories}}" wx:key="id" data-id="{{item.id}}" bindtap="onHotCat">
+          <view class="cat-ico-wrap">
+            <image class="cat-ico" src="{{item.iconSrc}}" mode="aspectFit" />
+          </view>
+          <text class="cat-name">{{item.name}}</text>
+        </view>
       </view>
     </view>
-  </view>
 
-  <view class="section">
-    <view class="section-head">
-      <text class="section-title">精选推荐</text>
-      <text class="section-more">更多 ›</text>
-    </view>
-    <view class="feat-card" wx:for="{{config.hotProducts}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenProduct">
-      <view class="feat-thumb">
-        <image wx:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" class="feat-img" />
-        <text wx:else class="feat-emoji">{{item.emoji || '🎆'}}</text>
+    <view class="section">
+      <view class="section-head">
+        <text class="section-title">精选推荐</text>
+        <text class="section-more">更多 ›</text>
       </view>
-      <view class="feat-info">
-        <view class="feat-name">{{item.name}}</view>
-        <view class="feat-spec">{{item.defaultSpec.name}}</view>
-        <view class="feat-row">
-          <text class="feat-price">¥{{item.priceText}}</text>
-          <view class="feat-add" catchtap="onAdd" data-id="{{item.id}}">＋</view>
+      <view class="feat-card" wx:for="{{config.hotProducts}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenProduct">
+        <image class="feat-thumb" src="{{item.image || item.featImage}}" mode="aspectFill" wx:if="{{item.image || item.featImage}}" />
+        <view class="feat-thumb feat-ph" wx:else><text>{{item.emoji || '🎆'}}</text></view>
+        <view class="feat-info">
+          <view class="feat-name">{{item.name}}</view>
+          <view class="feat-spec">{{item.specLine}}</view>
+          <view class="feat-row">
+            <text class="feat-price">¥{{item.priceText}}</text>
+            <view class="feat-add" catchtap="onAdd" data-id="{{item.id}}">＋</view>
+          </view>
         </view>
       </view>
     </view>
