@@ -1,0 +1,18 @@
+<view class="page" wx:if="{{order}}">
+  <view class="card">
+    <view class="row"><text class="k">单号</text><text>{{order.id}}</text></view>
+    <view class="row"><text class="k">状态</text><text class="price-color">已提交</text></view>
+    <view class="row"><text class="k">时间</text><text>{{order.createdAtText}}</text></view>
+    <view class="row"><text class="k">合计</text><text class="price-color">¥{{order.totalPriceText}}（{{order.totalCount}} 件）</text></view>
+  </view>
+  <view class="card">
+    <view class="title">商品明细</view>
+    <view class="line" wx:for="{{order.items}}" wx:key="index">
+      <view class="left">
+        <view class="name">{{item.name}}</view>
+        <view class="spec">{{item.specName}} × {{item.qty}}</view>
+      </view>
+      <view class="right">¥{{item.subtotalText}}</view>
+    </view>
+  </view>
+</view>

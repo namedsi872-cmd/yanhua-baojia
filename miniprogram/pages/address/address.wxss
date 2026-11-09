@@ -1,0 +1,10 @@
+.page { padding: 24rpx; }
+.card { background: #fff; border-radius: 28rpx; padding: 28rpx; margin-bottom: 20rpx; }
+.name { font-weight: 700; font-size: 30rpx; }
+.detail { margin-top: 10rpx; color: #555; line-height: 1.5; }
+.empty { text-align: center; color: #888; padding: 40rpx; }
+.btn-primary { margin-top: 8rpx; }
+.or { text-align: center; color: #888; margin: 24rpx 0 12rpx; font-size: 24rpx; }
+.form input {
+  background: #f7f6f3; border-radius: 16rpx; padding: 20rpx; margin-bottom: 16rpx; font-size: 28rpx;
+}
