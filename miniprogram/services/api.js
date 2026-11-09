@@ -85,7 +85,7 @@ function getProducts(query) {
   if (USE_REMOTE) return remote("/products", "GET", query || {});
   query = query || {};
   var list = enabledProducts().map(withDefaultSpec);
-  if (query.categoryId) {
+  if (query.categoryId && query.categoryId !== "all") {
     list = list.filter(function (p) {
       return p.categoryId === query.categoryId;
     });
