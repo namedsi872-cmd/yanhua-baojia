@@ -4,6 +4,9 @@ var api = require("../../services/api.js");
 Page({
   data: { items: [], totalCount: 0, totalPrice: "0.00" },
   onShow: function () {
+    if (typeof this.getTabBar === "function" && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 2 });
+    }
     this.refresh();
   },
   refresh: function () {

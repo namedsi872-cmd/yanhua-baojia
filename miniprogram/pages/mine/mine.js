@@ -3,6 +3,9 @@ var api = require("../../services/api.js");
 Page({
   data: { shop: {} },
   onShow: function () {
+    if (typeof this.getTabBar === "function" && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 3 });
+    }
     var that = this;
     api.getShop().then(function (shop) {
       that.setData({ shop: shop });
