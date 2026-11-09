@@ -1,0 +1,37 @@
+.page { padding-bottom: 140rpx; }
+.hero {
+  height: 750rpx;
+  background: #202326;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-img { width: 100%; height: 100%; }
+.hero-emoji { font-size: 160rpx; }
+.panel {
+  margin: 20rpx 24rpx;
+  padding: 28rpx;
+  background: #fff;
+  border-radius: 28rpx;
+}
+.name { font-size: 36rpx; font-weight: 700; color: #202326; }
+.price { margin-top: 12rpx; color: #e45d43; font-size: 44rpx; font-weight: 700; }
+.muted { margin-top: 8rpx; color: #888; font-size: 24rpx; }
+.label { font-size: 28rpx; font-weight: 600; margin-bottom: 16rpx; }
+.specs { display: flex; flex-wrap: wrap; gap: 16rpx; }
+.spec {
+  padding: 12rpx 22rpx;
+  border-radius: 999rpx;
+  background: #f7f6f3;
+  color: #202326;
+  font-size: 24rpx;
+}
+.spec.on { background: #e45d43; color: #fff; }
+.intro { color: #555; line-height: 1.6; font-size: 26rpx; }
+.footer {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  padding: 16rpx 24rpx calc(16rpx + env(safe-area-inset-bottom));
+  background: #fff;
+  box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.04);
+}
+.add { margin: 0; }

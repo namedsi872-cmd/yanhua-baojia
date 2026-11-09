@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="card" wx:if="{{address}}">
+    <view class="name">{{address.userName}} {{address.telNumber}}</view>
+    <view class="detail">{{address.provinceName}}{{address.cityName}}{{address.countyName}}{{address.detailInfo}}</view>
+  </view>
+  <view wx:else class="empty">还没有保存地址</view>
+  <button class="btn-primary" bindtap="onChoose">从微信选择地址</button>
+  <view class="or">或手动填写</view>
+  <view class="form card">
+    <input placeholder="姓名" value="{{form.userName}}" data-key="userName" bindinput="onInput" />
+    <input placeholder="手机号" value="{{form.telNumber}}" data-key="telNumber" bindinput="onInput" />
+    <input placeholder="省市区" value="{{form.region}}" data-key="region" bindinput="onInput" />
+    <input placeholder="详细地址" value="{{form.detailInfo}}" data-key="detailInfo" bindinput="onInput" />
+    <button class="btn-primary" bindtap="onSave">保存</button>
+  </view>
+</view>
