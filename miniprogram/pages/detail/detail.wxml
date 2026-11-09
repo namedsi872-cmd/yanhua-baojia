@@ -1,0 +1,34 @@
+<view class="page" wx:if="{{product}}">
+  <view class="hero">
+    <image wx:if="{{product.image}}" class="hero-img" src="{{product.image}}" mode="aspectFill" />
+    <text wx:else class="hero-emoji">{{product.emoji || '🎆'}}</text>
+  </view>
+  <view class="panel">
+    <view class="name">{{product.name}}</view>
+    <view class="price">¥{{priceText}}</view>
+    <view class="muted">库存 {{spec.stock}} · 起订 {{spec.minOrder}}</view>
+  </view>
+  <view class="panel">
+    <view class="label">选择规格</view>
+    <view class="specs">
+      <view
+        wx:for="{{product.specs}}"
+        wx:key="id"
+        class="spec {{item.id === specId ? 'on' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="onSpec"
+      >{{item.name}} ¥{{item.price}}</view>
+    </view>
+  </view>
+  <view class="panel">
+    <view class="label">数量</view>
+    <qty-stepper qty="{{qty}}" min="{{spec.minOrder}}" max="{{spec.stock}}" bind:change="onQty" />
+  </view>
+  <view class="panel" wx:if="{{product.intro}}">
+    <view class="label">介绍</view>
+    <view class="intro">{{product.intro}}</view>
+  </view>
+  <view class="footer">
+    <button class="btn-primary add" bindtap="onAdd">加入报价单</button>
+  </view>
+</view>
