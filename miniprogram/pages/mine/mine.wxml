@@ -1,34 +1,34 @@
 <view class="page page-with-tab">
   <view class="hero">
-    <view class="hero-bg"></view>
+    <image class="hero-deco" src="{{deco}}" mode="aspectFit" />
     <view class="hero-row">
-      <view class="avatar">游</view>
+      <image class="avatar" src="{{avatar}}" mode="aspectFill" />
       <view class="hero-text">
         <view class="name">游客用户</view>
-        <view class="sub">欢迎来到{{shop.name || '烟花小士多'}}</view>
+        <view class="sub">欢迎使用{{shop.name || '烟花小士多'}}</view>
       </view>
     </view>
   </view>
 
   <view class="menu">
     <view class="row" bindtap="goQuote">
-      <view class="left"><text class="ico">🧾</text><text>我的报价单</text></view>
+      <view class="left"><image class="ico" src="{{icons.quote}}" mode="aspectFit" /><text>我的报价单</text></view>
       <text class="arrow">›</text>
     </view>
     <view class="row" bindtap="goOrders">
-      <view class="left"><text class="ico">📋</text><text>我的订单</text></view>
+      <view class="left"><image class="ico" src="{{icons.orders}}" mode="aspectFit" /><text>我的订单</text></view>
       <text class="arrow">›</text>
     </view>
     <view class="row" bindtap="goAddress">
-      <view class="left"><text class="ico">📍</text><text>收货地址</text></view>
+      <view class="left"><image class="ico" src="{{icons.address}}" mode="aspectFit" /><text>收货地址</text></view>
       <text class="arrow">›</text>
     </view>
     <view class="row" bindtap="onCall">
-      <view class="left"><text class="ico">☎</text><text>联系客服</text></view>
+      <view class="left"><image class="ico" src="{{icons.service}}" mode="aspectFit" /><text>联系客服</text></view>
       <text class="arrow">›</text>
     </view>
     <view class="row" bindtap="goAbout">
-      <view class="left"><text class="ico">ℹ</text><text>关于我们</text></view>
+      <view class="left"><image class="ico" src="{{icons.about}}" mode="aspectFit" /><text>关于我们</text></view>
       <text class="arrow">›</text>
     </view>
   </view>
