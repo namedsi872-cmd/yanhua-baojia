@@ -1,6 +1,6 @@
 <view class="bar">
   <view class="item {{selected===index?'on':''}}" wx:for="{{list}}" wx:key="pagePath" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="onSwitch">
-    <view class="ico {{item.icon}}"></view>
+    <image class="ico" src="{{selected===index ? item.iconActive : item.icon}}" mode="aspectFit" />
     <text class="txt">{{item.text}}</text>
   </view>
 </view>
