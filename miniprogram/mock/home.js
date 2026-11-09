@@ -5,7 +5,7 @@
  */
 module.exports = {
   brandName: "烟花小士多",
-  bannerImage: "/images/banner.png" /* 可换真实照片；仓库已含抽象图 */,
+  bannerImage: "" /* 放入 images/banner.png 后改为 "/images/banner.png" */,
   bannerTitle: "",
   searchPlaceholder: "搜索商品名称",
   hotCategoryIds: ["shouchi", "tuzhu", "huojian", "tuijian"],
