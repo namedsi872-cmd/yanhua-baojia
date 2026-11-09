@@ -1,0 +1,10 @@
+.page { padding: 24rpx; }
+.card {
+  background: #fff; border-radius: 28rpx; padding: 28rpx; margin-bottom: 20rpx;
+}
+.top { display: flex; justify-content: space-between; }
+.id { font-weight: 600; }
+.status { color: #e45d43; font-size: 24rpx; }
+.mid { margin-top: 12rpx; font-size: 28rpx; }
+.time { margin-top: 8rpx; color: #888; font-size: 22rpx; }
+.empty { text-align: center; color: #888; padding: 120rpx 40rpx; line-height: 1.6; }

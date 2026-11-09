@@ -1,0 +1,40 @@
+<view class="page">
+  <view class="brand">{{config.brandName}}</view>
+
+  <view class="banner-wrap">
+    <image wx:if="{{config.bannerImage}}" class="banner" src="{{config.bannerImage}}" mode="aspectFill" binderror="onBannerError" />
+    <view wx:else class="banner-fallback">
+      <view class="spark s1"></view>
+      <view class="spark s2"></view>
+      <view class="spark s3"></view>
+      <view class="spark s4"></view>
+    </view>
+  </view>
+
+  <view class="search-wrap">
+    <input class="search" placeholder="{{config.searchPlaceholder}}" value="{{keyword}}" bindconfirm="onSearch" bindinput="onKeyword" confirm-type="search" />
+  </view>
+
+  <view class="section" wx:if="{{config.hotCategories.length}}">
+    <view class="section-title">热门分类</view>
+    <scroll-view scroll-x class="hot-cats" enable-flex>
+      <view class="hot-cat" wx:for="{{config.hotCategories}}" wx:key="id" data-id="{{item.id}}" bindtap="onHotCat">
+        <view class="hot-cat-icon">{{item.icon || '·'}}</view>
+        <view class="hot-cat-name">{{item.name}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="section" wx:if="{{config.hotProducts.length}}">
+    <view class="section-title">热门商品</view>
+    <product-card wx:for="{{config.hotProducts}}" wx:key="id" product="{{item}}" />
+  </view>
+
+  <view class="section">
+    <view class="section-title">全部商品</view>
+    <block wx:if="{{filtered.length}}">
+      <product-card wx:for="{{filtered}}" wx:key="id" product="{{item}}" />
+    </block>
+    <view wx:else class="empty">没有找到相关商品</view>
+  </view>
+</view>
