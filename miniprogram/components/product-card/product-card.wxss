@@ -1,0 +1,64 @@
+.card {
+  display: flex;
+  gap: 20rpx;
+  background: #ffffff;
+  border-radius: 28rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.thumb {
+  width: 176rpx;
+  height: 176rpx;
+  border-radius: 20rpx;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #f0efec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img { width: 100%; height: 100%; }
+.emoji { font-size: 64rpx; }
+.info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #202326;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.spec {
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: #888888;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.price {
+  margin-top: 8rpx;
+  color: #e45d43;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+.meta {
+  margin-top: 4rpx;
+  font-size: 22rpx;
+  color: #888888;
+}
+.row {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  padding-top: 8rpx;
+}
+.spacer { flex: 1; }
+.add {
+  font-size: 22rpx;
+  color: #ffffff;
+  background: #e45d43;
+  padding: 10rpx 20rpx;
+  border-radius: 999rpx;
+  font-weight: 600;
+}
